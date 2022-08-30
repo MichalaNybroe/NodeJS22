@@ -13,9 +13,9 @@ console.log(letters[1]);
 const friends = [];
 
 // What a lonely array. Add at least 3 friend objects to it without touching the line above.  
-friends[0] = {"name": "Silke"};
-friends[1] = {"name": "Rasmus"};
-friends[2] = {"name": "Jens"};
+friends[0] = {name: "Silke"};
+friends[1] = {name: "Rasmus"};
+friends[2] = {name: "Jens"};
 
 console.log(friends);
 
