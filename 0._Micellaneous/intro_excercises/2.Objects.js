@@ -17,8 +17,8 @@ console.log(alienMessage.message);
 // Create an object that has your name and age. 
 
 const object = {
-	"name": "Michala",
-	"age": 25
+	name: "Michala",
+	age: 25
 };
 
 console.log(object);
