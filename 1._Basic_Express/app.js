@@ -11,5 +11,9 @@ app.get("/", (request, response) => {
 response.send({message: "Created my first route. Check!"});
 });
 
+app.get('/cups', (req, res) => {
+    res.send({ color: "These cups are blue!" })
+});
+
 // Skal have en port at lytte på
 app.listen(8080);
