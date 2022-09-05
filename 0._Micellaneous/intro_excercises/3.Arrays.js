@@ -13,9 +13,9 @@ console.log(letters[1]);
 const friends = [];
 
 // What a lonely array. Add at least 3 friend objects to it without touching the line above.  
-friends[0] = {name: "Silke"};
-friends[1] = {name: "Rasmus"};
-friends[2] = {name: "Jens"};
+friends.push({name: "Silke"});
+friends.push({name: "Rasmus"});
+friends.push({name: "Jens"});
 
 console.log(friends);
 
@@ -56,7 +56,9 @@ console.log(diet);
 
 // You really like your daily diet from last exercise. Copy it to a new array called dinnerTray so you can give it to a friend.  
 
-const dinnerTray = diet;
+const dinnerTray = diet.slice();
+// Spread operator: tager det ud og hiver det i nyt objekt
+// const dinnerTray = [...diet];
 
 console.log(dinnerTray);
 
