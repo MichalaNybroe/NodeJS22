@@ -21,3 +21,11 @@ console.log(genericActionExecutor(spitting, 'Amanda'));
 // flow kører generic metode først så spitting
 
 
+const shooting = (name) => `${name} is shooting`;
+
+console.log(genericActionExecutor(shooting,'Malte'));
+
+
+const run = (name) => `${name} is running away`;
+console.log(genericActionExecutor((name) => `${name} is running away`), 'Murat');
+
