@@ -27,7 +27,7 @@ app.get('/cups', (req, res) => {
 // 2. 
 // sende query paramtere (query string)
 // /deers?key=value&key2=value2
-
+// (req res) =>      er en callback function
 app.get('/deers/:id', (req, res) => {
     if (Number(req.params.id) === 1) {
         res.send({ name: "Bambi", theBestAndOGDeer: true })
