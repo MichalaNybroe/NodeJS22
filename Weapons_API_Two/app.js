@@ -23,24 +23,41 @@ app.get("/weapons/:id", (req, res) => {
 
 let idCounter = weapons.length + 1;
 app.post("/weapons", (req, res) => {
+    
+
     if (req.query.name !== undefined) {
-        weapons.push({id: idCounter, type: req.query.type, name: req.query.name, weight: req.query.weight});
-        res.send({message: "Weapon has been added."})
+        const weapon = {id: idCounter++, type: req.query.type, name: req.query.name, weight: req.query.weight};
+        weapons.push(weapon);
+        res.send({data: weapon})
     } else {
         res.send({errorMessage: "Weapon given in incorrect form"})
     }
 });
 
 app.put("/weapons/:id", (req, res) => {
-    weapons = weapons.map((w) => {
-        if (w.id === Number(req.params.id)) {
-            return {id: Number(req.params.id), type: req.query.type, name: req.query.name, weight: req.query.weight};
+    if (req.query.name !== undefined) {
+        let idFound = false;
+
+        weapons = weapons.map((w) => {
+            if (w.id === Number(req.params.id)) {
+                const weapon = {id: Number(req.params.id), type: req.query.type, name: req.query.name, weight: req.query.weight};
+                res.send({data: weapon})
+                idFound = true;
+                return weapon;
+            }
+    
+            return w;
+        });
+    
+        if (idFound === false) {
+            res.send({message: "No weapon with this id"});
         }
-        console.log(w)
-        return w;
-    })
-    console.log(weapons);
-    res.send({message: "Weapon has been updated"});
+        
+    } else {
+
+        res.send({errorMessage: "Weapon given in incorrect form"});
+    }
+    
 });
 
 app.delete("/weapons/:id", (req, res) => {
@@ -50,8 +67,10 @@ app.delete("/weapons/:id", (req, res) => {
         }
     })
 
+    console.log(weapon) 
     if (weapon[0] !== undefined) {
-        const index = weapons.indexOf(weapon.id);
+        const index = weapons.indexOf(weapon[0]);
+        console.log(weapons.indexOf(weapon[0]));
         weapons.splice(index, 1);
         res.send({message: "Weapon has been removed"});
     } else {
