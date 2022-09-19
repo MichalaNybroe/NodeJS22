@@ -15,6 +15,19 @@ app.get('/cups', (req, res) => {
     res.send({ color: "These cups are blue!" })
 });
 
+const days = ["Sunday", "Monday", "Thuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+console.log(new Date());
+console.log(new Date().toLocaleString());
+// get day returnere et tal. Vær opmærksom på at
+// det start på index 0 men den amerikanske kalender
+// start med søndag
+console.log(days[new Date().getDay()]);
+console.log(new Date().getMonth());
+
+app.get("/dates", (req, res) => {
+    res.send({ data: new Date().toLocaleString() });
+});
+
 
 // brug : i express
 
@@ -50,6 +63,12 @@ app.get('/actors', (req, res) => {
 // I browser white space bliver %20 i url
 // ved at spreade foran bliver det informationer på samme niveau
 // req.query.name
+
+// Post
+app.post("/actors", (req, res) => {
+    res.send({data: req.body})
+});
+
 
 // Skal have en port at lytte på
 app.listen(8080);
