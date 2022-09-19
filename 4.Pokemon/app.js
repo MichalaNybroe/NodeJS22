@@ -3,6 +3,8 @@ import path from "path";
 
 const app = express();
 
+app.use(express.static("public")); // Gør mappen statisk tilfængelig?
+
 const pokemon = [{name: "Bulbasaur"}, {name: "Pichachu"} ]
 
 app.get("/", (req, res) => {
