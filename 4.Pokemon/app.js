@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 
 app.get("/pokemon", (req, res) => {
     //res.send({ data: pokemon })
-    res.sendFile(path.resolve("public/frontpage.html"))
+    res.send({ data: ["Slowpoke"] })
 });
 
 
