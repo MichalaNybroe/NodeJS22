@@ -8,6 +8,8 @@ const author = document.getElementById('scrollResultAuthor');
 const image = document.getElementById('scrollResultImage');
 const text = document.getElementById('scrollResultText');
 
+const date = document.getElementById('date');
+
 year.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -96,3 +98,11 @@ function displayBook(year) {
             text.innerText = ``;
             break;
             */
+
+
+function displayTodaysDate() {
+    const today = new Date().toLocaleString().slice(0, 10);
+    date.innerText = today;
+}
+            
+displayTodaysDate();

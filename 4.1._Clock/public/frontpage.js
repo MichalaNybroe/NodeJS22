@@ -33,6 +33,7 @@ function translateYear(year) {
     } else if (year >= 1950 && year < 1970) {
         translatedYear = 1960;
     } else if (year >= 1970 && year < 2000) {
+
         translatedYear = 1982;
     } else {
         translatedYear = 2019;
