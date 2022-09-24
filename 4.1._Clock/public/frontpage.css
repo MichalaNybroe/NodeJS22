@@ -1,7 +1,137 @@
-body {
-    background-color: deeppink;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-#bomb {
-    
+header {
+    background-color: burlywood;
+}
+
+header h1 {
+    color: saddlebrown;
+    padding: 2% 8%;
+    font-size: 35px;
+}
+
+.content {
+    background-color: rgba(222, 184, 135,0.3);
+    padding: 5rem 0;
+}
+
+#scrollerDiv {
+    border-color: saddlebrown;
+}
+
+#infoInput {
+    color: saddlebrown;
+    padding: 1rem 42rem 0;
+}
+
+#formYear {
+    padding: 1rem 49rem 0rem 52rem;
+}
+
+#formYear input {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+#submitYear {
+    background-color: brown;
+    color: white;
+    border-color: #c55656;
+    border-radius: 0.5rem;
+}
+
+/*https://w3collective.com/responsive-step-progress-bar/*/
+#headScroll {
+    padding: 3rem 54rem 0;
+    color: saddlebrown;
+}
+
+#scroller {
+    position: relative;
+    margin: 2rem 40rem 5rem 40rem;
+}
+
+#progressBar {
+    position: absolute;
+    background: saddlebrown;
+    height: 5px;
+    width: 0%;
+    top: 50%;
+    left: 0;
+}
+
+#progressClicks {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+#progressClicks::before {
+    content: "";
+    background-color: brown;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    z-index: -1;
+}
+
+.clickBar {
+    border: 3px solid #c55656;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    background-color: brown;  
+    position: relative;
+    z-index: 1;
+}
+
+.clickBar:hover {
+    cursor: pointer;
+    background-color: #c55656;
+}
+
+#scrollResultDiv {
+    padding: 0 40rem 5rem;
+}
+
+#scrollResultHeader {
+    text-align: center;
+    color: saddlebrown;
+}
+
+#scrollResultAuthor {
+    text-align: center;
+    color: saddlebrown;
+}
+
+#scrollResultImage {
+    padding-top: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#scrollResultText {
+    padding-top: 1rem;
+}
+
+footer {
+    background-color: burlywood;
+}
+
+footer h2 {
+    color: saddlebrown;
+    padding: 2% 8%;
+    font-size: 20px;
 }

@@ -5,16 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time is of the essence!</title>
+    <title>Books Through Time!</title>
 </head>
 <body>
+    <header>
+        <h1>Books Through Time!</h1>
+    </header>
 
-    <h1>Time is of the essence!</h1>
-    
-    <div id="bomb">
+    <div class="content">
+        
+        <div id="scrollerDiv">
 
+            <h2 id="infoInput">Enter year and we will return the book closets in time</h2>
+            <form id="formYear">
+                <input type="number" placeholder="e.g. 1999" id="inpYear">
+                <input type="submit" id="submitYear" value="Select">
+            </form>
+
+            <h2 id="headScroll">Or click below</h2>
+            <div id="scroller">
+               
+                <div id="progressBar"></div>
+
+                <ul id="progressClicks">
+                    <li class="clickBar" id="default"></li>
+                    <li class="clickBar" id="1813"></li>
+                    <li class="clickBar" id="1937"></li>
+                    <li class="clickBar" id="1960"></li>
+                    <li class="clickBar" id="1982"></li>
+                    <li class="clickBar" id="2019"></li>
+                </ul>
+            </div>
+
+            <div id="scrollResultDiv">
+                <h2 id="scrollResultHeader"></h2>
+                <h3 id="scrollResultAuthor"></h3>
+                <img id="scrollResultImage">
+                <p id="scrollResultText"></p>
+            </div>
+        </div>
     </div>
 
+    <footer>
+        <h2>footer here</h2>
+    </footer>
     <script type="module" src="frontpage.js"></script>
 </body>
 </html>
