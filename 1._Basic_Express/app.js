@@ -69,6 +69,27 @@ app.post("/actors", (req, res) => {
     res.send({data: req.body})
 });
 
+app.get("/lookunderbed", (req,res) => {
+    const input = req.query.flashlight;
+    console.log(input)
+
+    if (input) {
+        res.send({ message: "You are safe" });
+    } else {
+        res.redirect("/monsters"); // redirect serversite
+        // res.send({ message: "Look under the bed."})     
+    }
+
+    // Får ikke fejl klientsite men gør serversite idet der kun er
+    // ét response uden en else eller en return i if
+
+    // til at undgå meget dybe nestede statements brug evt return
+    })
+
+app.get("/monsters", (req, res) => {
+    res.send({ message: "Uh oh! Scary monsters!!!"})
+})
+
 
 // Skal have en port at lytte på
 app.listen(8080);
