@@ -1,4 +1,4 @@
-const ul = document.getElementById('pokemons');
+const pokemonList = document.getElementById('pokemon');
 
 /*fetch("/api/pokemon")
         .then(response => response.json())
@@ -20,15 +20,20 @@ const ul = document.getElementById('pokemons');
         */
 
 
-/*fetch("/api/pokemon")
-        .then(response = response.json())
+fetch("/api/pokemon")
+        .then(response => response.json())
         .then(result => {
-                result.results.foreach(pokemon => {
-                        const pokemonLi = document.createElement('li');
-                        pokemonLi.innerText = pokemon.name;
-                        ul.appendChild(pokemonLi);
+                console.log(result.data.results)
+                result.data.results.forEach(pokemon => {
+                        const pokeDiv = document.createElement('div');
+
+                        const battleLink = document.createElement('a');
+                        battleLink.innerText = pokemon.name;
+                        battleLink.setAttribute('href', `/battle/${pokemon.name}`);
+                        pokeDiv.appendChild(battleLink);
+                        pokemonList.appendChild(pokeDiv);
         });
-});*/
+});
 
 /*function moveUser() {
         //location.href = '/battle'; kan bruge begge i det window er globalt browser objekt

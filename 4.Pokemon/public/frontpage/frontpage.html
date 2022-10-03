@@ -2,21 +2,37 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/frontpage/frontpage.css">
+    <link rel="stylesheet" href="../generic/footer.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon</title>
 </head>
 <body>
-    <h3>Welcome to my Pokemon Website</h3>
-    <a href="/battle"><button>Battle</button></a>
+    <header>
+
+        <nav>
+            <a href="/"><img src="../download.png"></a>
+
+            <a href="/battle">Battle</a>
+
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h3>Welcome to my Pokemon Website</h3>
+        <a href="/battle"><button>Battle</button></a>
     
 
-    <ul id="pokemons">
+        <div id="pokemon">
 
-    </ul>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
 
     <script src="./frontpage/frontpage.js"></script>
-
+    <script src="./generic/footer.js"></script>
 </body>
 </html>

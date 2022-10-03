@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../generic/footer.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+
+        <nav>
+            <a href="/"><img src="../download.png"></a>
+
+            <a href="/battle">Battle</a>
+
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <h2>Please leave a review</h2>
+        <form action="/api/contact" method="POST">
+            <label for="emailInput">Email</label>
+            <input type="email" id="emailInput" name="emailInput" placeholder="test@mail.dk">
+
+            <label for="reviewInput">Message</label>
+            <textarea id="reviewInput" name="reviewInput" placeholder="My feedback for you is..." cols="20" rows="10"></textarea>
+
+            <input type="submit" id="reviewSubmit">
+        </form>
+
+        <div id="reviews"></div>
+
+    </main>
+    
+    <footer id="footer"></footer>
+
+    <script src="./contact.js"></script>
+    <script src="../generic/footer.js"></script>
+</body>
+</html>

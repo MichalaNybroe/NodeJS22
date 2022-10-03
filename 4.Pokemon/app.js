@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 app.get("/api/pokemon", (req, res) => {
     fetch("https://pokeapi.co/api/v2/pokemon")
         .then(response => response.json())
-        .then(result => res.send({ data: result.results}))
+        .then(result => res.send({ data: result}))
     // res.send({ data: pokemon })
     // res.send({ data: ["Slowpoke"] })
 });
@@ -24,11 +24,18 @@ app.get("/api/pokemon", (req, res) => {
 // Få fat i 20 pokemon og vis på siden https://pokeapi.co/
 // se frontpage.js
 
-app.get("/battle", (req, res) => {
+app.get("/battle/:pokemonName", (req, res) => {
     res.sendFile(path.resolve("public/battle/battle.html"));
 });
 
+app.get("/battle", (req, res) => {
+    const randomPokemon = "pichachu";
+    res.redirect(`/battle/${randomPokemon}`);
+});
 
+app.get("/contact", (req, res) => {
+    res.sendFile(path.resolve("public/contact/contact.html"));
+});
 
 
 //const PORT = 8080; //equals final i java men er konstant i js
