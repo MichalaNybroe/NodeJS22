@@ -1,16 +1,25 @@
 import express, { response } from "express";
 import path from "path";
 
-const app = express();
+const app = express();  
 
 app.use(express.json());
 
 app.use(express.static("public")); // Gør mappen statisk tilfængelig?
 
-const pokemon = [{name: "Bulbasaur"}, {name: "Pichachu"} ]
+
+import { renderPage } from "./util/templateEngine.js";
+
+const frontpagePage = renderPage("/frontpage/frontpage.html", {tabTitle: "Pokemon", cssLink: `<link rel="stylesheet" href="../pages/frontpage/frontpage.css">`});
+
+const contactpagePage = renderPage("contact/contact.html", {});
+
+const battlepagePage = renderPage("battle/battle.html", {cssLink: `<link rel="stylesheet" href="../pages/battle/battle.css">`});
+//const pokemon = [{name: "Bulbasaur"}, {name: "Pichachu"} ]
 
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("public/frontpage/frontpage.html"));
+    res.send(frontpagePage);
+    //res.sendFile(path.resolve("public/pages/frontpage/frontpage.html"));
 });
 
 app.get("/api/pokemon", (req, res) => {
@@ -25,7 +34,8 @@ app.get("/api/pokemon", (req, res) => {
 // se frontpage.js
 
 app.get("/battle/:pokemonName", (req, res) => {
-    res.sendFile(path.resolve("public/battle/battle.html"));
+    res.send(battlepagePage.replace("%%TAB_TITLE%%", `Battle ${req.params.pokemonName}` ));
+    //res.sendFile(path.resolve("public/pages/battle/battle.html"));
 });
 
 app.get("/battle", (req, res) => {
@@ -34,7 +44,8 @@ app.get("/battle", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
-    res.sendFile(path.resolve("public/contact/contact.html"));
+    res.send(contactpagePage);
+    //res.sendFile(path.resolve("public/pages/contact/contact.html"));
 });
 
 
