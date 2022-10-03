@@ -7,38 +7,48 @@
 #header {
     padding: 1rem;
     display: grid;
-    grid-template-columns: 10% 30% 50% 10%;
+    grid-template-columns: 10% 80% 10%;
     background-color: rgba(43,134,187,0.5);
 }
 
-#header h2 {
-    grid-column: 2/3;
-    font-size: 2.5rem;
-    grid-row: 1;
-    color: rgba(236,240,247,1);
+#header img {
+    max-width: 20rem;
+    max-height: 7rem;
 }
 
-#header ul {
-    grid-column: 3/4;
+#header nav {
+    grid-column: 2/4;
     grid-row: 2;
 }
 
-#header li {
+#header a {
     display: inline-block;
 }
 
-#header li a {
+#header a {
     text-decoration: none;
     font-size: 1.8rem;
     padding: 0 1rem;
     color: rgba(237,237,237,1);
 }
 
-#header li a:hover {
+#header a:hover {
     cursor: pointer;
+    background-color: rgba(44,142,189,0.65);
+}
+
+#header #login {
+    border: solid;
+    border-radius: 9px;
+    border-color: rgba(44,142,189,0.65);
 }
 
 
+/*--------Main-------*/
+
+main {
+    min-height: calc(100vh - 230px);
+}
 
 
 /*-------Footer-----*/
@@ -47,6 +57,7 @@
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
     background-color: rgba(44,142,189,0.65);
+    color: rgba(227,227,227,1);
 }
 
 #footer h3 {
@@ -67,5 +78,10 @@
 #linkedin {
     padding-top: 0.5rem;
     grid-column: 2/3;
+    grid-row: 3;
+}
+
+#copyRight {
+    grid-column: 5/6;
     grid-row: 3;
 }
