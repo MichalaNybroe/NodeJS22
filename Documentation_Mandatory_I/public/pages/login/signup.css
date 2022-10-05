@@ -1,0 +1,45 @@
+#signupBox {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    padding: 2rem;
+    text-align: center;
+}
+
+#signupForm {
+    background-color: rgba(43,134,187,0.5);
+    padding: 1rem;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-gap: 1rem;
+}
+
+#signupForm h2 {
+    color: white;
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    grid-column: 2/3;
+    grid-row: 1;
+}
+
+.input {
+    padding: 0.5rem;
+    grid-column: 2/3;
+}
+
+#signupSubmit {
+    cursor: pointer;
+    text-align: center;
+    width: 4rem;
+    padding: 0.3rem;
+    border-radius: 1rem;
+    border: none;
+    font-size: 1rem;
+    margin: 0 145px;
+    grid-row: 7;
+    grid-column: 2/3;
+}
+
+#signupSubmit:hover {
+    background-color: white;
+}
