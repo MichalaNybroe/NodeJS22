@@ -7,8 +7,11 @@ app.use(express.json());
 
 app.use(express.static("public")); // Gør mappen statisk tilfængelig?
 
+import pokemonRouter from "./routers/pokemonRouter.js";
+app.use(pokemonRouter);
 
-import { renderPage } from "./util/templateEngine.js";
+
+import { renderPage, injectData } from "./util/templateEngine.js";
 
 const frontpagePage = renderPage("/frontpage/frontpage.html", {tabTitle: "Pokemon", cssLink: `<link rel="stylesheet" href="../pages/frontpage/frontpage.css">`});
 
@@ -22,25 +25,20 @@ app.get("/", (req, res) => {
     //res.sendFile(path.resolve("public/pages/frontpage/frontpage.html"));
 });
 
-app.get("/api/pokemon", (req, res) => {
-    fetch("https://pokeapi.co/api/v2/pokemon")
-        .then(response => response.json())
-        .then(result => res.send({ data: result}))
-    // res.send({ data: pokemon })
-    // res.send({ data: ["Slowpoke"] })
-});
-
 // Få fat i 20 pokemon og vis på siden https://pokeapi.co/
 // se frontpage.js
 
 app.get("/battle/:pokemonName", (req, res) => {
-    res.send(battlepagePage.replace("%%TAB_TITLE%%", `Battle ${req.params.pokemonName}` ));
+    const pokemonName = req.params.pokemonName;
+    let battlepagePageWithData = injectData(battlepagePage, { pokemonName }); //kan blive ved med at injecte data
+    //injection i head fordi det ellers ikke er noget data jeg kan tilgå
+   // res.send(battlepagePage.replace("%%TAB_TITLE%%", `Battle ${req.params.pokemonName}`));
     //res.sendFile(path.resolve("public/pages/battle/battle.html"));
 });
 
+const randomPokemon = ["pikachu", "slowpoke", "ditto", "ivysaur"];
 app.get("/battle", (req, res) => {
-    const randomPokemon = "pichachu";
-    res.redirect(`/battle/${randomPokemon}`);
+    res.redirect(`/battle/${randomPokemon[Math.floor(Math.random() * randomPokemon.length)]}`);
 });
 
 app.get("/contact", (req, res) => {
