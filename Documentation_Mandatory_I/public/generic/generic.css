@@ -65,6 +65,10 @@ main h3 {
     padding: 2rem;
 }
 
+main label {
+    font-size: 1.2rem;
+}
+
 
 /*-------Footer-----*/
 
@@ -100,4 +104,5 @@ main h3 {
 #copyRight {
     grid-column: 5/6;
     grid-row: 3;
+    color: rgba(227,227,227,1);
 }

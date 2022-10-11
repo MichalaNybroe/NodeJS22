@@ -1,5 +1,4 @@
 import express from "express";
-import path from "path";
 import { renderPage } from "./util/templateEngine.js";
 
 const app = express();
@@ -9,13 +8,14 @@ app.use(express.json());
 
 
 //Pages
-const frontpage = renderPage("/frontpage/frontpage.html", { pageCss: `<link rel="stylesheet" href="./pages/frontpage/frontpage.css">`});
-const loginPage = renderPage("/login/login.html", {tabTitle: "Login", pageCss: `<link rel="stylesheet" href="./pages/login/login.css">`});
-const signupPage = renderPage("/login/forgotPW.html", {tabTitle: "Sign-Up", pageCss: `<link rel="stylesheet" href="./pages/login/forgotPW.css">`});
-const setupPage = renderPage("/setup/setup.html", {tabTitle: "Set-Up NodeJs"});
-const triviaPage = renderPage("/trivia/trivia.html", {tabTitle: "NodeJs Fun!"});
-const commandPage = renderPage("commands/commands.html", {tabTitle: "NodeJs Commands"});
-const toolPage = renderPage("/tools/tools.html", {tabTitle: "NodeJs Tools"});
+const frontpage = renderPage("/frontpage/frontpage.html", { pageCss: `<link rel="stylesheet" href="./pages/frontpage/frontpage.css">` });
+const loginPage = renderPage("/login/login.html", { tabTitle: "Login", pageCss: `<link rel="stylesheet" href="./pages/login/login.css">` });
+const signupPage = renderPage("/login/forgotPW.html", { tabTitle: "Sign-Up", pageCss: `<link rel="stylesheet" href="./pages/login/forgotPW.css">` });
+const setupPage = renderPage("/setup/setup.html", { tabTitle: "Set-Up NodeJs" });
+const triviaPage = renderPage("/trivia/trivia.html", { tabTitle: "NodeJs Fun!" });
+const commandPage = renderPage("commands/commands.html", { tabTitle: "NodeJs Commands" });
+const toolPage = renderPage("/tools/tools.html", { tabTitle: "NodeJs Tools" });
+const adminPage = renderPage("/admin/admin.html", { tabTitle: "NodeJs Admin System", pageCss: `<link rel="stylesheet" href="./pages/admin/admin.css">` });
 
 app.get("/", (req, res) => {
     res.send(frontpage);
@@ -45,9 +45,17 @@ app.get("/tools", (req, res) => {
     res.send(toolPage);
 });
 
+app.get("/admin", (req, res) => {
+    res.send(adminPage);
+});
+
 app.post("/login", (req, res) => {
-    //Wait for form day 10/10
-    // make post for signup
+    //check if login info is correct
+    // redirect to adminpage id correct
+});
+
+app.post("/admin", (req, res) => {
+    //post admin page
 });
 
 
