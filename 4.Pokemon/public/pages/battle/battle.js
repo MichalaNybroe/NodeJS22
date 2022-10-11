@@ -1,10 +1,13 @@
-const pathVariables = location.pathname.split("/");
-const pokemonName = pathVariables[pathVariables.length-1];
+//const pathVariables = location.pathname.split("/");
+//const pokemonName = pathVariables[pathVariables.length-1];
 
 fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
     .then(response => response.json())
     .then(pokemon => {
-        const battlingPokemonImage = document.getElementById("battling-pokemon-sprite")
+        const chose = document.getElementById('chose');
+        chose.innerText = `You chose ${pokemonName}!`
+        const battlingPokemonImage = document.getElementById("battling-pokemon-sprite");
+        console.log(battlingPokemonImage);
         battlingPokemonImage.src = pokemon.sprites.other.dream_world.front_default;
         //get from sprite - other - dreamworld
 

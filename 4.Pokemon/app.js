@@ -30,9 +30,9 @@ app.get("/", (req, res) => {
 
 app.get("/battle/:pokemonName", (req, res) => {
     const pokemonName = req.params.pokemonName;
-    let battlepagePageWithData = injectData(battlepagePage, { pokemonName }); //kan blive ved med at injecte data
+    const battlepagePageWithData = injectData(battlepagePage, { pokemonName }); //kan blive ved med at injecte data
     //injection i head fordi det ellers ikke er noget data jeg kan tilgå
-   // res.send(battlepagePage.replace("%%TAB_TITLE%%", `Battle ${req.params.pokemonName}`));
+    res.send(battlepagePageWithData.replace("%%TAB_TITLE%%", `Battle ${req.params.pokemonName}`));
     //res.sendFile(path.resolve("public/pages/battle/battle.html"));
 });
 
