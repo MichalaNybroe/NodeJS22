@@ -1,11 +1,11 @@
 <div id="loginBox">
     <form action="/login" method="POST" id="loginForm">
-        <h2>Sign In!</h2><br>
+        <h4>Sign In!</h2><br>
         <label for="email">Email:</label>
-        <input type="text" class="input" name="email"><br>
+        <input type="text" class="input" name="email" placeholder="node@mail.dk"><br>
         <label for="password">Password:</label>
-        <input type="text" class="input" name="password">
-        <button type="button" id="forgotPW" onclick="window.location.href='/signup'">Forgot your password?</button><br>
+        <input type="text" class="input" name="password" placeholder="Enter password">
+        <button type="button" id="forgotPW" onclick="window.location.href='/forgotPassword'">Forgot your password?</button><br>
         <input type="submit" id="logButton" value="Login">
     </form>
 </div>

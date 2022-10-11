@@ -11,7 +11,7 @@ app.use(express.json());
 //Pages
 const frontpage = renderPage("/frontpage/frontpage.html", { pageCss: `<link rel="stylesheet" href="./pages/frontpage/frontpage.css">`});
 const loginPage = renderPage("/login/login.html", {tabTitle: "Login", pageCss: `<link rel="stylesheet" href="./pages/login/login.css">`});
-const signupPage = renderPage("/login/signup.html", {tabTitle: "Sign-Up", pageCss: `<link rel="stylesheet" href="./pages/login/signup.css">`});
+const signupPage = renderPage("/login/forgotPW.html", {tabTitle: "Sign-Up", pageCss: `<link rel="stylesheet" href="./pages/login/forgotPW.css">`});
 const setupPage = renderPage("/setup/setup.html", {tabTitle: "Set-Up NodeJs"});
 const triviaPage = renderPage("/trivia/trivia.html", {tabTitle: "NodeJs Fun!"});
 const commandPage = renderPage("commands/commands.html", {tabTitle: "NodeJs Commands"});
@@ -25,7 +25,7 @@ app.get("/login", (req, res) => {
     res.send(loginPage);
 });
 
-app.get("/signup", (req, res) => {
+app.get("/forgotPassword", (req, res) => {
     res.send(signupPage);
 });
 

@@ -1,22 +1,20 @@
-#signupBox {
+#forgotBox {
     display: grid;
-    grid-template-columns: 30% 40% 30%;
-    padding: 2rem;
+    grid-template-columns: 10% 80% 10%;
     text-align: center;
 }
 
-#signupForm {
+#forgotForm {
     background-color: rgba(43,134,187,0.5);
     padding: 1rem;
     grid-column: 2/3;
     display: grid;
     grid-template-columns: 25% 50% 25%;
-    grid-gap: 1rem;
 }
 
-#signupForm h2 {
+#forgotForm h2 {
     color: white;
-    padding: 1rem 0;
+    padding: 2rem 0;
     font-size: 1.5rem;
     grid-column: 2/3;
     grid-row: 1;
@@ -27,7 +25,19 @@
     grid-column: 2/3;
 }
 
-#signupSubmit {
+#forgotEmailInp {
+    margin-bottom: 2rem;
+}
+
+#forgotPassInp {
+    margin-bottom: 2rem;
+}
+
+#forgotPassInpTwo {
+    margin-bottom: 2rem;
+}
+
+#forgotSubmit {
     cursor: pointer;
     text-align: center;
     width: 4rem;
@@ -36,10 +46,10 @@
     border: none;
     font-size: 1rem;
     margin: 0 145px;
-    grid-row: 7;
+    grid-row: 5;
     grid-column: 2/3;
 }
 
-#signupSubmit:hover {
+#forgotSubmit:hover {
     background-color: white;
 }

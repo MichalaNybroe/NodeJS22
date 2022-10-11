@@ -1,7 +1,6 @@
 #loginBox {
     display: grid;
-    grid-template-columns: 30% 40% 30%;
-    padding: 2rem;
+    grid-template-columns: 10% 80% 10%;
     text-align: center;
 }
 
@@ -14,7 +13,7 @@
     grid-gap: 1rem;
 }
 
-#loginForm h2 {
+#loginForm h4 {
     color: white;
     padding: 1rem 0;
     font-size: 1.5rem;
