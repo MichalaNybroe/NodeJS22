@@ -13,8 +13,7 @@ const loginPage = renderPage("/login/login.html", { tabTitle: "Login", pageCss: 
 const signupPage = renderPage("/login/forgotPW.html", { tabTitle: "Sign-Up", pageCss: `<link rel="stylesheet" href="./pages/login/forgotPW.css">` });
 const setupPage = renderPage("/setup/setup.html", { tabTitle: "Set-Up NodeJs" });
 const triviaPage = renderPage("/trivia/trivia.html", { tabTitle: "NodeJs Fun!" });
-const commandPage = renderPage("commands/commands.html", { tabTitle: "NodeJs Commands" });
-const toolPage = renderPage("/tools/tools.html", { tabTitle: "NodeJs Tools" });
+const commandToolPage = renderPage("commands/commands.html", { tabTitle: "NodeJs Commands", pageCss: `<link rel="stylesheet" href="./pages/commands/commands.css">` });
 const adminPage = renderPage("/admin/admin.html", { tabTitle: "NodeJs Admin System", pageCss: `<link rel="stylesheet" href="./pages/admin/admin.css">` });
 
 app.get("/", (req, res) => {
@@ -38,11 +37,7 @@ app.get("/trivia", (req, res) => {
 });
 
 app.get("/commands", (req, res) => {
-    res.send(commandPage);
-});
-
-app.get("/tools", (req, res) => {
-    res.send(toolPage);
+    res.send(commandToolPage);
 });
 
 app.get("/admin", (req, res) => {

@@ -1,0 +1,56 @@
+<h2>Commands and tools</h2>
+
+
+<h3>Package manager</h3>
+<h4>npm</h4>
+<p>Npm is the package manager for NodeJs. Therefore tools and the setup of the package.json is installed through npm commands.</p>
+
+
+<h4>Display version of package manager</h4>
+<p>npm -v</p>
+
+<h4>Install dependencies in a node_modules folder</h4>
+<p>npm install</p>
+
+<h4>Install "Express"</h4>
+<p>Express is a web application framework often used when working with NodeJs.</p>
+<p>npm install express</p>
+
+<h4>Install everything in package.json</h4>
+<p>npm i</p>
+
+
+<h3>Development environment</h3>
+<h4>Nodemon</h4>
+<p>Nodemon is a development environment tool used to run a server.</p>
+<p>When nodemon is used it re-runs itself everytime changes are being made in json or js. Other file types can be added in a file nodemon.json - example below.</p>
+<img src="/nodemonjson.png">
+
+<h4>Install nodemon globally</h4>
+<p>npm install -g nodemon</p>
+
+<h4>Run server</h4>
+<p>nodemon.cmd app.js</p>
+
+<h3>Use of environment variables</h3>
+<h4>Cross-environment variables</h4>
+<p>When enabling the use of environment variables while using nodemon it will not be enabled when nodemon does a re-run. Therefore you can add the variable to your development script before nodemon.cmd app.js to ensure it being enabled without having to stop and re-run the whole program.</p>
+<img src="/crossenv.png">
+<p>To refer to environment variable in app.js write process.env.PORT.</p>
+
+<p>npm i --save-dev cross-env*****</p>
+
+
+
+<h3>Svelte</h3>
+<p>Svelte is a web framework in which one can define components. When using Svelte one can make changes in DOM without keeping an overview.</p>
+<h4>Install Svelte</h4>
+<p>npm create vite</p>
+<h4>Run your svelte project</h4>
+<p>npm run dev</p>
+<h4>Set-up</h4>
+<p>Enable the extension "Svelte for VS Code" and when a Svelte project is created the following is deleted: all content in app.svelte, folder named lib and svg file in assets.</p>
+
+
+
+
