@@ -17,7 +17,7 @@ import { incrementVisitorCounter } from "./geocitiesUtil.js";
 import path from "path";
 
 app.get("/",(req, res) => {
-    console.log("Visitors sonce the server started", incrementVisitorCounter())
+    console.log("Visitors once the server started", incrementVisitorCounter())
     //__dirname er noget defineret i cm ikke i module
     // res.sendFile(__dirname + "/public/frontpage.html")
     res.sendFile(path.resolve("./public/frontpage.html"));

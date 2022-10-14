@@ -1,11 +1,48 @@
-<h4>Guide to Your NodeJs Project set-up</h4>
+<h2>Guide to Your NodeJs Project set-up</h2>
 
-<p>entrypoint -> package.json</p>
-<p>type: module(ALT er moduler. gør muligtat benytte sig af import og export - kan man ikke i common js, Importering af module gør at man ikke har adgang til filer som i node hvorfor man importerer path til at give stivejen), express, scripts</p>
-<p>app.js -> deklaration, listen og routes(benytter sig af callback functions), tolk data som json (fortæller vi benytter os af bodyparser, json fordi alle sprog kan parse det) og gør public mappe tilgængelig (klient får adgang til mappe med statiske filer)</p>
-<p>template engine</p>
-<p>ssr af sider -> nodemon.json i rod -> så nodemon genkøres altså modtager det aktuelle indhold på siderne, readFileSync</p>
+<h3>Step One: Making an entrypoint</h3>
+<p>Firstly we create the package.json file where the programs dependencies are set-up.</p>
 
-<p>Forskellige måder at sende: send({ data OR message: xxx }), sendFile(__dirname + "fil.html" and use of path module)</p>
-<p>Tilføjelse af miljø variabler -> fjerne ansvar fra koden</p>
+<h4>Lets set it up!</h4>
+<p>We might want to use modules, express and perhaps scripts as seen below.</p>
+<img src="/entrypoint.png">
+
+<h4>Use of Modules</h4>
+<p>In NodeJs we can create modules quite easily and then fit them into parts of our program.</p>
+<p>By using the type:modules, we make it possible to import and export which is otherwise not possible in common js.</p>
+<p>Modules can only read scirpts and not common files.</p>
+<p>Therefore when using "Express" one might in common js use set up using require like this.</p>
+<img src="/commonjsexpress.png">
+<p>Whereas the system looks for a directory called express in node modules when using import "Express".</p>
+<img src="/moduleexpress.png">
+
+<p>Another differenace when using modules is when refering to filepath. In common js one can use __dirname. With modules we import a module!</p>
+<img src="/pathmodule.png">
+
+<h3>Step Two: Build a Server</h3>
+<p>The convention for naming the server file is to call it app.js</p>
+<p>In step one we already established how to instatiate the express library - but we need a port!</p>
+<p>This can be done with a simple "app.listen(8080)"". Now we have set our server to be running on port 8080. But maybe we want something a little more fancy?</p>
+<img src="/serverportcrossenv.png">
+<p>In the example above we make use of cross enviromental variables - the setup can be found in the "Commands and Tools" section but the main point is to remove responsibility from the code itself.</p>
+<p>Notice though, that we make use of a defined variable or 8080 as the port, therefore the server will still run on port 8080 if you do not define a cross enviromental variable</p>
+
+<h3>Step Three: Set up those routes!</h3>
+<p>In our app.js file we can now set up different routes - some might deliver static pages and others might be our API.</p>
+<p>A route consists of a method called on our server in which we give two arguments: an endpoint and a callback function with two elements - a request and a response.</p>
+<p>There are different ways of sending data to the client site. All are used on the response element "res.send({ data: xx })", "res.sendFile()" as seen in step one "use of modules". But we might also redirect on the server site by calling the redirect method on the response element. The redirect method takes an endpoint as argument.</p>
+
+<p>Now if we were to make a route invoking the post method we need to tell the server what type of data to expect.</p>
+<p>To do this we simply tell the system that we are using bodyparser by writing "app.use(express.json())". The reason we want to choose json is because all programming languages can parse it.</p>
+<p>To receive data from the frontend one might use several elements in the request element. "req.query.x", "req.body" or "req.params.x".</p>
+<p>If we want to serve a file we need to give the client permission to reach the static files. This is done by creating a folder called public and in app.js add this line: "app.use(express.static("public"))".</p>
+
+<h3>Now You have a server with routes!</h3>
+<h4>For even more fun - keep going!</h4>
+
+<h3>Step Four: Server Site Rendering</h3>
+<p>We might step up our app a little bit by serving files on the serversite instead of on the client side and whilst duing this - why not make it possible to re-use components?.</p>
+<p>Lets create a file called templateEngine.js - in this we can make use of the "fs" module enabling the us to use the method "fs.readFileSync()". This will help us with as an example create a method for putting together a header and footer on all pages.</p>
+<img src="/templateengine.png">
+<p>Notice that when developing and using nodemon - we need to re-run the program each time a file is changed - easy fix is to add html to files nodemon will notice if changes are made in and re-run (see "Commands and Tools").</p>
 
