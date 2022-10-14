@@ -1,15 +1,49 @@
-<h2>NodeJs</h2>
+<h2>NodeJs Trivia!</h2>
 
-<p>SSR gennem Node (Klar fordel ved SSR fremfor client site -> SCO -> ved scraping vurderes siden dårligt i ranking)</p>
-<p>Asynkron</p>
-<p>Repple = node</p>
-<p>Basic node: funktionel programemring(server-cleint), priært map, reduce og filter (undtagen ved behov for resultat -> foreach), ingen space i mapper, forskel på == og ===, brug af Number, lowercase and snakecase, app.js => server, array er dynamiske og kan tildeles undervejs</p>
-<p>type coersion</p>
-<p>callback functions -> Funktions reference som sendes som argument</p>
-<p>hoisting</p>
-<p>spread operator</p>
-<p>key value pairs (defineret til slut overskriver)</p>
-<p>const -> ikke konstant men skal deklareres idet den oprettes - kan ændre værdi men ikke reassigne (mutable but not reassignable)</p>
-<p>Anonyme funktioner -> "this" bundet til arrow functions i modsætning til de i andre funktioner referer længere op</p>
-<p>window.location.replace() og getelementbyid fremfor query selector (1 vs 3 tråde)</p>
-<p>use of %%xx%% like %%TAB_TITLE%%</p>
+<p>NodeJs is functional and asynchonius.</p>
+
+<h3>Basic NodeJs Section!</h3>
+
+<p>Use Map, reduce or filter -> only use foreach when in need of the result.</p>
+<p>No space in directory names.</p>
+<p>Lowercase and snakecase.</p>
+<p>All numbers (except bigint) is Number.</p>
+<p>Arrays are dynamically.</p>
+<p>The repple in NodeJs is node.</p>
+<p>== vs === : comparing objects with == only checks if its value is the same ("22" == 22 is true), whereas === checks if the value and type is the same ("22" === 22 is false). (More info under Type Coersion)</p>
+<p>Use getElementById() instead of querySelector(): it reduces the amount of threads used from 3 to 1.</p>
+<p>When using window.location to redirect use "window.location.replace()".</p>
+
+
+<h3>NodeJs next level</h3>
+
+<h4>Key Value Pairs</h4>
+<p>"key": "value". If one overwrites the value the latter will be the value of the key.</p>
+
+<h4>SSR</h4>
+<p>SSR helps create a better user experience by lowading all content all at once. This also contributes to the SCO - making it rank even better.</p>
+
+<h4>Type Coersion</h4>
+<p>Type coersion is the an ability in javascript to convert data from one type to another. This can however create inconsistency in the code due to the order of the different elements. As an example it is possible to abstratly compare '12' and 12 using == but with this '12' + 12 one might expect 24 but will actually get 1212 as the result.</p>
+
+<h4>Callback functions</h4>
+<p>Because javascript is asynchonous it is possible to execute more things simultaniously. When using a callback function a promise is invoked and firtly when the function is done either returning with an error or the result the promise is resolved. Therefore a callback function is a referance to code given as an argument to another function which executes only when the promise of the calback function is resolved.</p>
+<img src="/callbackfunc.png">
+<p>In the code above we might expect the result to be before, timeout and then after. But it will actually be before, after and then timeout.</p>
+
+<h4>Hoisting</h4>
+<p>Hoisting is one of the many treats of working with javascript. It will see all declared variables and functions and move these to the start of the scope before executing the code. Therefore one can make use of both variables nad functions before declaring them.</p>
+
+<h4>Spread Operator</h4>
+<p>The spread operator "..." makes it possible to add 0+ arguments to an iterable.</p>
+
+<h4>Const</h4>
+<p>Const is mutable but not reassignable - but it is not constant as the name might imply, it shall however be decalred when idet den oprettes established.</p>
+
+<h4>Anonymous functions</h4>
+<p>When using anonymous functions "this" is bound to the arrow function where it in other functions refers further up.</p>
+
+<h4>Use of %%xxx%%</h4>
+<p>This is a feature where entering %%xx%% in a html file will be a keyword which can be mutated like in the example below.</p>
+<img src="/htmlTABTITLE.png">
+<img src="/jsTABTITLE.png">

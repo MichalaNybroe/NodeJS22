@@ -44,9 +44,18 @@ app.get("/admin", (req, res) => {
     res.send(adminPage);
 });
 
+const hardEmail = "nodefun@study.com";
+const hardPassword = "plaY4FuN-*";
+
 app.post("/login", (req, res) => {
-    //check if login info is correct
-    // redirect to adminpage id correct
+    const email = req.body.email;
+    const password = req.body.password;
+     
+    if (email === hardEmail && password === hardPassword) {
+        res.redirect("/admin");
+    } else {
+        res.send({ message: "Login Failed" });
+    }
 });
 
 app.post("/admin", (req, res) => {

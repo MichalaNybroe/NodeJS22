@@ -2,10 +2,12 @@
     <form action="/login" method="POST" id="loginForm">
         <h4>Sign In!</h2><br>
         <label for="email">Email:</label>
-        <input type="email" class="input" name="email" placeholder="node@mail.dk"><br>
+        <input type="email" class="input" name="email" placeholder="node@mail.dk" id="email"><br>
         <label for="password">Password:</label>
-        <input type="password" class="input" name="password" placeholder="Enter password">
+        <input type="password" class="input" name="password" placeholder="Enter password" id="password">
         <button type="button" id="forgotPW" onclick="window.location.href='/forgotPassword'">Forgot your password?</button><br>
         <input type="submit" id="logButton" value="Login">
     </form>
 </div>
+
+<script src="./pages/login/login.js"></script>
