@@ -52,9 +52,9 @@ app.post("/login", (req, res) => {
     const password = req.body.password;
      
     if (email === hardEmail && password === hardPassword) {
-        res.redirect("/admin");
+        res.send({ message: "Login successful!" });
     } else {
-        res.send({ message: "Login Failed" });
+        res.status(401).send({ message: "Login Failed" });
     }
 });
 

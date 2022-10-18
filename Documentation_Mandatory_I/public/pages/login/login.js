@@ -10,12 +10,16 @@ loginForm.addEventListener('submit', (event) => {
         password: passwordInp.value
     };
 
-    console.log(body);
-
-    return fetch('/login', {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
+       return fetch('/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(body)
-    }).then(response => response.json()).catch(message => alert(JSON.stringify(message)));
+    }).then( (response) => {
+        if(response.ok) {
+            window.location.replace('/admin')
+        } else {
+            response.json().then((m) => alert(m.message));
+        }
+        }).catch(message => alert(JSON.stringify(message)));
 });
 
