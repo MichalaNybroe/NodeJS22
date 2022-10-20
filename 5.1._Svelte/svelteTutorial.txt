@@ -1,0 +1,21 @@
+https://svelte.dev/tutorial/basics
+
+
+Tool for building fast web applications
+
+--Svelte converts your app into ideal JavaScript at build time, rather than interpreting your application code at run time. This means you don't pay the performance cost of the framework's abstractions, and you don't incur a penalty when your app first loads.
+
+--A component is a reusable self-contained block of code that encapsulates HTML, CSS and JavaScript that belong together, written into a .svelte file. 
+
+- refering to variables in components with {}
+
+- svelte will warn if we are making inaccessible markup (tut intro c)
+
+- use of nested components via import and then <x/> referance in html
+
+- rendering html in html using @html before referance to variable ** be aware xss attacks : Manually escape HTML from sources we do not trust
+
+- To create an app: integrate build tool (vite) : npm create vite@latest my-app -- --template svelte
+--Once set up : compiler turns each component into a js class -> use svelte components by using new
+---Remove lib folder, everything in app.svelte and svg file in assets
+- install svelte by npm install 

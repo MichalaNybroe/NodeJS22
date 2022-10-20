@@ -1,0 +1,63 @@
+Introduction:
+
+B. Adding data
+<script>
+	let name = 'world';
+</script>
+
+<h1>Hello {name.toUpperCase()}!</h1>
+
+
+C. Dynamic  attributes
+<script>
+	let src = '/tutorial/image.gif';
+	let name = 'A man';
+</script>
+
+<img src={src} alt= '{name} dances'>
+
+
+D. Styling
+<p>This is a paragraph.</p>
+
+<style>
+	p {
+		color: purple;
+		font-family: 'Comic Sans MS', cursive;
+		font-size: 2rem;
+	}
+</style>
+
+
+E. Nested componnents
+<p>This is a paragraph.</p>
+<Nested/>
+
+<style>
+	p {
+		color: purple;
+		font-family: 'Comic Sans MS', cursive;
+		font-size: 2em;
+	}
+</style>
+
+<script>
+	import Nested from './Nested.svelte';
+</script>
+
+
+F. HTML tags
+<script>
+	let string = `this string contains some <strong>HTML!!!</strong>`;
+</script>
+
+<p>{@html string}</p>
+
+
+G. Making an app
+Look in directory tutIntroG -src main.js
+
+Reactivity:
+
+
+
