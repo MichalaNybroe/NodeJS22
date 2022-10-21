@@ -19,3 +19,45 @@ Tool for building fast web applications
 --Once set up : compiler turns each component into a js class -> use svelte components by using new
 ---Remove lib folder, everything in app.svelte and svg file in assets
 - install svelte by npm install 
+
+
+
+Reactivity
+- svelte keeps dom insync application variables
+- keeeping variables in synch with each other (declarations)
+    let count = 0;
+	$: doubled = count * 2;
+- when using desclarations one might also use Statements
+- sveltes reactivity is triggered by assigment - not just calling updates on objects.
+
+
+Summary:
+
+Intro
+Can write directly in svelte both html, css and scripts
+ Refer to variable {name} in html
+Can give attributes the same way
+ <img src = {src}>
+ could be just <img {src}> because it is the same name
+Can import components in components
+ import Nested from './Nested.svelte';
+ then in html referance <Nested/>
+ **css from one component does not interfere/overwrite in the next
+Can render html directly in a component 
+ {@html x} - x being the variable
+ **watch out for xss attacks
+Make a Svelte app
+ npm create vite@latest my-app -- --template svelte
+ npm install
+ npm run dev
+ : delete lib, all in app.svelte and svg file in assets
+
+Reactivity
+Can keep DOM in sync with application Statements
+Can keep variables in sync with one another
+ $: var2 = var1 manipulate
+Can make use of statements 
+ $: {code (including if statemnts etc)}
+Can update objects but has to be through assignments
+ x = [...x, x.length + 1]
+ ** Always has to = x on right side
