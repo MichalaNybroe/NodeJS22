@@ -1,0 +1,132 @@
+Introduction:
+
+B. Adding data
+<script>
+	let name = 'world';
+</script>
+
+<h1>Hello {name.toUpperCase()}!</h1>
+
+
+C. Dynamic  attributes
+<script>
+	let src = '/tutorial/image.gif';
+	let name = 'A man';
+</script>
+
+<img src={src} alt= '{name} dances'>
+
+
+D. Styling
+<p>This is a paragraph.</p>
+
+<style>
+	p {
+		color: purple;
+		font-family: 'Comic Sans MS', cursive;
+		font-size: 2rem;
+	}
+</style>
+
+
+E. Nested componnents
+<p>This is a paragraph.</p>
+<Nested/>
+
+<style>
+	p {
+		color: purple;
+		font-family: 'Comic Sans MS', cursive;
+		font-size: 2em;
+	}
+</style>
+
+<script>
+	import Nested from './Nested.svelte';
+</script>
+
+
+F. HTML tags
+<script>
+	let string = `this string contains some <strong>HTML!!!</strong>`;
+</script>
+
+<p>{@html string}</p>
+
+
+G. Making an app
+Look in directory tutIntroG -src main.js
+
+Reactivity:
+A. Assigments
+
+<script>
+	let count = 0;
+
+	function incrementCount() {
+		count += 1;
+	}
+</script>
+
+<button on:click={incrementCount}>
+	Clicked {count} {count === 1 ? 'time' : 'times'}
+</button>
+
+
+B. Declarations
+<script>
+	let count = 0;
+	$: doubled = count * 2;
+
+	function handleClick() {
+		count += 1;
+	}
+</script>
+
+<button on:click={handleClick}>
+	Clicked {count} {count === 1 ? 'time' : 'times'}
+</button>
+<p>
+	{count} doubles is {doubled}
+</p>
+
+
+C. Statements
+<script>
+	let count = 0;
+	$: if(count >= 10) {
+		console.log('The count is ' + count);
+		alert('The count is dangerously high!');
+					count = 9;
+	}
+	
+	function handleClick() {
+		count += 1;
+	}
+</script>
+
+<button on:click={handleClick}>
+	Clicked {count} {count === 1 ? 'time' : 'times'}
+</button>
+
+
+D. Updating Arrays and objects
+<script>
+	let numbers = [1, 2, 3, 4];
+
+	function addNumber() {
+		//numbers.push(numbers.length + 1);
+		//numbers = numbers;
+		// above via push method - below via spread operator
+		numbers = [...numbers, numbers.length + 1];
+		
+	}
+
+	$: sum = numbers.reduce((t, n) => t + n, 0);
+</script>
+
+<p>{numbers.join(' + ')} = {sum}</p>
+
+<button on:click={addNumber}>
+	Add a number
+</button>
