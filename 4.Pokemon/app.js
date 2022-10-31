@@ -3,6 +3,10 @@ import path from "path";
 
 const app = express();  
 
+app.use(express.urlencoded({ extended: true })); //Gør det muligt at modtage urlencoded (form data)
+//extended true - nested : parse igennem alle niveauer
+// parametre i form skal så have name for at virke
+
 app.use(express.json());
 
 app.use(express.static("public")); // Gør mappen statisk tilfængelig?
@@ -10,6 +14,9 @@ app.use(express.static("public")); // Gør mappen statisk tilfængelig?
 import pokemonRouter from "./routers/pokemonRouter.js";
 app.use(pokemonRouter);
 
+
+import contactRouter from "./routers/contactRouter.js";
+app.use(contactRouter);
 
 import { renderPage, injectData } from "./util/templateEngine.js";
 

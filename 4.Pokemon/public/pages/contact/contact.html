@@ -1,10 +1,13 @@
         <h2>Please leave a review</h2>
         <form action="/api/contact" method="POST">
+            <label for="nameInput">Name</label>
+            <input type="text" id="nameInput" name="nameInput" placeholder="Lars" value="Michala">
+
             <label for="emailInput">Email</label>
-            <input type="email" id="emailInput" name="emailInput" placeholder="test@mail.dk">
+            <input type="email" id="emailInput" name="emailInput" placeholder="test@mail.dk" value="mich@mail.dk">
 
             <label for="reviewInput">Message</label>
-            <textarea id="reviewInput" name="reviewInput" placeholder="My feedback for you is..." cols="20" rows="10"></textarea>
+            <textarea id="reviewInput" name="reviewInput" placeholder="My feedback for you is..." cols="20" rows="10">*****</textarea>
 
             <input type="submit" id="reviewSubmit">
         </form>
