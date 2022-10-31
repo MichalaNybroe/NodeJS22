@@ -22,7 +22,7 @@
 </script>
 
 <h1>Hi, I'm {name}.</h1>
-<p on:click={handleEraseFridgeBulletin} on:keydown={() => {}}>Erase message on fridge</p><!--on keydown else it wont work, because it is p tag-->
+<p class="eraseBulletin" on:click={handleEraseFridgeBulletin} on:keydown={() => {}}>Erase message on fridge</p><!--on keydown else it wont work, because it is p tag-->
 
 <!--sådan man looper igennem børnene: -->
 {#each children as child}
@@ -35,4 +35,8 @@
     <Pet pet={pet}/>
 {/each}
 
-
+<style>
+    .eraseBulletin {
+        user-select: none;
+    }
+</style>

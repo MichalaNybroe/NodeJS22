@@ -6,16 +6,17 @@
   const children = [
     {
       name: "Søren",
-      blackSheep: true
+      blackSheep: "ultra-blacksheep"
     },
     {
       name: "Laura",
-      bright: true,
-      isGirl: true
+      brightKid: true,
+      isGirl: true,
+      blackSheep: "medium-blacksheep"
     },
     {
       name: "Anita",
-      bright: false
+      brightKid: false
     }
   ];
 

@@ -103,7 +103,7 @@ asyncAwaitExample();
 //Ulempe ved await asynch : lige nu kan den vente på flere efter hinanden
 // i stedet sig promise.all() så kan man kører dem parallelt
 
-//IIFE Imediately invoked functional expresssion : example below
+//IIFE Imediately invoked function expresssion : example below
 
 (async function asyncAwaitExampleIIFE() {
     try {
