@@ -4,8 +4,7 @@
 import nodemailer  from "nodemailer";
 
 export async function sendMail(name, to, subject, text, html) {
-    console.log("hej")
-
+   
     let testAccount = await nodemailer.createTestAccount();
 
     let transporter = nodemailer.createTransport({
