@@ -1,0 +1,31 @@
+{
+  "name": "middleware_security",
+  "version": "0.0.1",
+  "description": "Defining middleware for Express and enhancing our server with securoty",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichalaNybroe/NodeJS22.git"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "mandatory2",
+    "security"
+  ],
+  "author": "Michala Nybroe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MichalaNybroe/NodeJS22/issues"
+  },
+  "homepage": "https://github.com/MichalaNybroe/NodeJS22#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.6.0",
+    "helmet": "^6.0.0"
+  }
+}
