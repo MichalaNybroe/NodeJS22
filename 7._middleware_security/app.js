@@ -21,6 +21,17 @@ const frontdoorLimiter = rateLimit({
 
 app.use("/frontdoor", frontdoorLimiter); //kan ved brug af postman se under headers at der nu er ratelimit reset etc.
 
+import session from "express-session";
+import popcornRouter from "./routers/popcornRouter.js"
+app.use(session({
+    secret: 'keyboard cat'/*fremover vil vi ikke hardcode secret*/,
+    resave: false/*gem kun ved ændring*/,
+    saveUninitialized: true/*giv mig noget*/,
+    cookie: { secure: false /*ved true prøver den at sætte det op på https*/}
+}));
+
+app.use(popcornRouter);
+
 function guidingButler(req, res, next) {
     console.log("This way, sir.");
     next();//Hvis ikke man kalder next kommer du ikke videre
