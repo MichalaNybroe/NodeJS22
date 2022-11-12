@@ -9,7 +9,7 @@
 <main>
   <Navbar></Navbar>
 
-
+<p>hej</p>
   <Footer></Footer>
 </main>
 

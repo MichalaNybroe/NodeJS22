@@ -8,7 +8,7 @@
         <button type="button" id="forgotPW" onclick="window.location.href='/forgotPassword'">Forgot your password?</button><br>
         <input type="submit" id="logButton" value="Login">
     </form>
-    <button type="button" id="signUp" onclick="window.location.href='/signUp"></button>
+    <button type="button" id="signUp" onclick="window.location.href='/signUp'"></button>
 </div>
 
 <style>
