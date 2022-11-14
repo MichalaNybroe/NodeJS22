@@ -1,3 +1,8 @@
+/*import dotenv from "dotenv"; // library for environment variables
+dotenv.config(); så kan man selv opsætte filen*/
+//ved default kan man skrive
+import dotenv from "dotenv/config";
+
 import express from "express";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
@@ -24,7 +29,7 @@ app.use("/frontdoor", frontdoorLimiter); //kan ved brug af postman se under head
 import session from "express-session";
 import popcornRouter from "./routers/popcornRouter.js"
 app.use(session({
-    secret: 'keyboard cat'/*fremover vil vi ikke hardcode secret*/,
+    secret: env.process.SESSION_SECRET/*keyboard cat: fremover vil vi ikke hardcode secret*/,
     resave: false/*gem kun ved ændring*/,
     saveUninitialized: true/*giv mig noget*/,
     cookie: { secure: false /*ved true prøver den at sætte det op på https*/}
