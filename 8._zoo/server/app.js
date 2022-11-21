@@ -9,6 +9,12 @@ import cors from "cors";
 app.use(cors()); //Tillader alle at hente - do not do this - instead specify
 //vigtigt at cors er før dine routes
 
+import animalFeedTypesRouter from "./router/animalFeedTypesRouter.js";
+app.use(animalFeedTypesRouter);
+
+import animalFeedStockRouter from "./router/animalFeedStockRouter.js";
+app.use(animalFeedStockRouter);
+
 import animalsRouter from "./router/animalsRouter.js";
 app.use(animalsRouter);
 
