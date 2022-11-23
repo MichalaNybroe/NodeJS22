@@ -1,8 +1,11 @@
 <script>
-  import Home from "./pages/Home/Home.svelte"
-  import Adoption from "./pages/Adoption/Adoption.svelte"
-  import Contact from "./pages/Contact/Contact.svelte"
-  import Settings from "./pages/Settings/Settings.svelte"
+  import Navbar from "./components/Navbar.svelte"
+  import Footer from "./components/Footer.svelte"
 </script>
+
+<main>
+  <Navbar></Navbar>
+  <Footer></Footer>
+</main>
 
 

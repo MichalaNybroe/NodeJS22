@@ -1,3 +1,7 @@
+<script>
+    import { Router, Link, Route } from "svelte-navigator"
+</script>
+
 <div id="loginBox">
     <form action="/login" method="POST" id="loginForm">
         <h4>Sign In!</h4><br>
@@ -8,7 +12,7 @@
         <button type="button" id="forgotPW" onclick="window.location.href='/forgotPassword'">Forgot your password?</button><br>
         <input type="submit" id="logButton" value="Login">
     </form>
-    <button type="button" id="signUp" onclick="window.location.href='/signUp'"></button>
+    <button id="signUp" onclick="window.location.href='/signUp'">Sign Up</button>
 </div>
 
 <style>
@@ -17,6 +21,7 @@
     display: grid;
     grid-template-columns: 10% 80% 10%;
     text-align: center;
+    margin: 2rem;
 }
 
 #loginForm {

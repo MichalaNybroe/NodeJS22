@@ -3,7 +3,7 @@
     import { onMount } from "svelte"
     import { BASE_URL } from "../../store/globals.js"
 
-
+    // Make it possible to select animal to view more on each "/api/animals/:id"
     let animals = []
 
     async function fetchAnimals() {
@@ -21,3 +21,15 @@
 {#each animals as animal}
     <p>{animal}</p>
 {/each}
+
+
+<style>
+    * {
+        color: #29353D;
+    }
+
+    h3 {
+        font-size: 2rem;
+        text-align: center;
+    }
+</style>
