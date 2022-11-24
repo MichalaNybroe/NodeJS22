@@ -1,19 +1,53 @@
 <script>
     import { Router, Link, Route } from "svelte-navigator"
+
+    import ForgotPassword from "../ForgotPasssword/ForgotPassword.svelte"
+    import SignUp from "../SignUp/SignUp.svelte"
+
+    const emailInp = document.getElementById('email')
+    const passwordInp = document.getElementById('password')
+    const loginForm = document.getElementById('loginForm')
+
+    loginForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    
+    const body =  {
+        email: emailInp.value,
+        password: passwordInp.value
+    }
+
+       return fetch('/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(body)
+    }).then( (response) => {
+        if(response.ok) {
+            window.location.replace('/settings')
+        } else {
+            //lad det være en notifikation
+            response.json().then((m) => alert(m.message))
+        }
+        }).catch(message => alert(JSON.stringify(message)))
+})
 </script>
 
-<div id="loginBox">
-    <form action="/login" method="POST" id="loginForm">
-        <h4>Sign In!</h4><br>
-        <label for="email">Email:</label>
-        <input type="email" class="input" name="email" placeholder="great@mail.dk" id="email"><br>
-        <label for="password">Password:</label>
-        <input type="password" class="input" name="password" placeholder="Enter password" id="password">
-        <button type="button" id="forgotPW" onclick="window.location.href='/forgotPassword'">Forgot your password?</button><br>
-        <input type="submit" id="logButton" value="Login">
-    </form>
-    <button id="signUp" onclick="window.location.href='/signUp'">Sign Up</button>
-</div>
+<Router>
+    <div id="loginBox">
+        <form action="/login" method="POST" id="loginForm">
+            <h4>Sign In!</h4><br>
+            <label for="email">Email:</label>
+            <input type="email" class="input" name="email" placeholder="great@mail.dk" id="email"><br>
+            <label for="password">Password:</label>
+            <input type="password" class="input" name="password" placeholder="Enter password" id="password">
+            <Link id="forgotPW" to="/forgotPassword">Forgot your password?</Link><br>
+            <input type="submit" id="logButton" value="Login">
+            <Link id="signUp" to="/signUp">Sign Up</Link>
+        </form>
+    </div>
+
+    <Route path="/forgotPassword"><ForgotPassword /></Route>
+    <Route path="/signUp"><SignUp /></Route>
+</Router>
 
 <style>
 
