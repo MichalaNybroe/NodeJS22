@@ -7,7 +7,7 @@
     let animals = []
 
     async function fetchAnimals() {
-    const response = await fetch(`${$BASE_URL}` + "/api/animals")
+    const response = await fetch(`${$BASE_URL}` + "/api/animals", {credentials: "include"}) //to use voth session and cors
         const data = await response.json()
         animals = data.data
     }
