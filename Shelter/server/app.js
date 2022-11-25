@@ -1,5 +1,8 @@
+import * as dotenv from "dotenv"
+dotenv.config()
 import express from "express"
 const app = express()
+
 
 app.use(express.json())
 
@@ -17,9 +20,8 @@ import helmet from "helmet"
 app.use(helmet()) // To help set headers for security
 
 import session from "express-session"
-import crypto from "express"
 app.use(session({
-    secret: crypto().randomBytes(16).toString("hex"),
+    secret: process.env.SECRET_SESSION,
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false /*http*/}
@@ -27,7 +29,9 @@ app.use(session({
 
 
 // Routers
-import { animalsRouter, loginRouter, contactRouter } from "./routers"
+import animalsRouter from "./routers/animalsRouter.js"
+import contactRouter from "./routers/contactRouter.js"
+import loginRouter from "./routers/loginRouter.js"
 app.use(animalsRouter)
 app.use(contactRouter)
 app.use(loginRouter)

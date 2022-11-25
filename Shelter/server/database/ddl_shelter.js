@@ -1,5 +1,7 @@
+import * as dotenv from "dotenv"
+dotenv.config()
 import db from "./connection.js"
-import encryptPassword from "../util/encryption.js"
+import { encryptPassword } from "../util/encryption.js"
 
 const isInDeleteMode = true
 
@@ -28,11 +30,11 @@ db.exec(`CREATE TABLE IF NOT EXISTS users (
 if(isInDeleteMode) {
     // animals
     db.run(`INSERT INTO animals(type, race, name, age, description, color, sex, price) 
-    VALUES ();`)
+    VALUES (?,?,?,?,?,?,?,?);`, ["Cat", "Mixed", "Atla", "A cute cat with enourmous eyes. She is very friendly but a bit of a Diva.", "Orange, Beige, White, Brown", "Female", 1000])
     db.run(`INSERT INTO animals(type, race, name, age, description, color, sex, price) 
-    VALUES ();`)
+    VALUES (?,?,?,?,?,?,?,?);`, ["Dog", "Labrador", "Viggo", "Belives he is part of Lord og the Rings - but otherwise and incredible dog!", "Beige", "Male", 3600])
 
     // users
-    db.run(`INSERT INTO users(email, password) VALUES(${process.env.EMAIL}, ${encryptPassword(process.env.PASSWORD)});`)
+    db.run(`INSERT INTO users(email, password) VALUES(?,?);`, [ process.env.EMAIL, encryptPassword(process.env.PASSWORD)])
 }
 

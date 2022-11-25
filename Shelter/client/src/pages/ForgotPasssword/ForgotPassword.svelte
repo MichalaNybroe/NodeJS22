@@ -17,7 +17,7 @@
             } else {
                 response.json().then(/*(m) => error notification(m.message)*/)
             }
-        }).catch(message => /*notifcation error JSON.stringify(message)*/)
+        }).catch(message => /*notifcation error JSON.stringify(message)*/message)
     })
 </script>
 

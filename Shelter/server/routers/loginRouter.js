@@ -2,16 +2,16 @@ import { Router } from "express"
 const router = Router()
 
 import db from "../database/connection.js"
-import rateLimit from "express-rate-limit";
-import { comparePassword, encryptPassword } from "../util/encryption.js";
-import { sendMail } from "../util/mail.js";
+import rateLimit from "express-rate-limit"
+import { comparePassword, encryptPassword } from "../util/encryption.js"
+import { sendMail } from "../util/mail.js"
 
 const loginLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 6
 })
 
-router.use(loginLimiter);
+router.use(loginLimiter)
 
 router.post("/login", async (req, res, next) => {
     const { email, password } = req.body
