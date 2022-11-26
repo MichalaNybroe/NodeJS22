@@ -1,41 +1,45 @@
 <script>
-    import { onMount } from "svelte";
-    import { Router, Link, Route } from "svelte-navigator";
+    import { onMount } from "svelte"
+    import { Router, Link, useNavigate } from "svelte-navigator"
+    import { BASE_URL } from "../../store/globals.js"
+    import { user } from "../../store/auth.js"
+    import * as Toastr from "toastr"
+    import '../../../node_modules/toastr/build/toastr.css'
 
-    import ForgotPassword from "../ForgotPasssword/ForgotPassword.svelte";
-    import SignUp from "../SignUp/SignUp.svelte";
-
+    const navigate = useNavigate()
     onMount(async () => {
-        const emailInp = document.getElementById("email");
-        const passwordInp = document.getElementById("password");
-        const loginForm = document.getElementById("loginForm");
+        const emailInp = document.getElementById("email")
+        const passwordInp = document.getElementById("password")
+        const loginForm = document.getElementById("loginForm")
         loginForm.addEventListener("submit", (event) => {
-            event.preventDefault();
+            event.preventDefault()
 
             const body = {
                 email: emailInp.value,
                 password: passwordInp.value,
-            };
+            }
 
-            return fetch("/login", {
+            return fetch(`${$BASE_URL}/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(body),
-            })
-                .then((response) => {
+                body: JSON.stringify(body)
+            }).then((response) => {
                     if (response.ok) {
-                        window.location.replace("/settings");
+                        user.set(true)
+                        navigate("/settings")
                     } else {
-                        //lad det være en notifikation
-                        response.json().then((m) => alert(m.message));
+                        response.json().then((m) => Toastr.warning(m.message))
                     }
-                })
-                .catch((message) => alert(JSON.stringify(message)));
-        });
-    });
+            }).catch(() => {
+
+                Toastr.error("Not possible to login. Try again later.")
+            })
+
+        })
+    })
 </script>
 
-<Router>
+<Router primary={false}>
     <div id="loginBox">
         <form action="/login" method="POST" id="loginForm">
             <h4>Sign In!</h4>
@@ -56,15 +60,12 @@
                 placeholder="Enter password"
                 id="password"
             />
-            <Link id="forgotPW" to="/forgotPassword">Forgot your password?</Link
-            ><br />
+            <Link to="/forgotPassword"><p  id="forgotPW">Forgot your password?</p></Link>
+            <br />
             <input type="submit" id="logButton" value="Login" />
-            <Link id="signUp" to="/signUp">Sign Up</Link>
+            <Link to="/signUp"><p id="signUp">Sign Up</p></Link>
         </form>
     </div>
-
-    <Route path="/forgotPassword"><ForgotPassword /></Route>
-    <Route path="/signUp"><SignUp /></Route>
 </Router>
 
 <style>
@@ -122,17 +123,19 @@
     }
 
     #forgotPW {
-        border: none;
-        background-color: transparent;
-        font-size: 1rem;
         color: white;
-        grid-row: 6;
-        text-align: center;
-        grid-column: 2/3;
     }
 
     #forgotPW:hover {
-        cursor: pointer;
+        font-weight: bold;
+    }
+
+    #signUp {
+        color: white;
+        text-decoration: underline;
+    }
+
+    #signUp:hover {
         font-weight: bold;
     }
 </style>

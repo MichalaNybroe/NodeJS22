@@ -1,15 +1,12 @@
 <script>
-    import { Router, Link, Route } from "svelte-navigator"
-    import Home from "../pages/Home/Home.svelte"
-    import Adoption from "../pages/Adoption/Adoption.svelte"
-    import Contact from "../pages/Contact/Contact.svelte"
+    import { Router, Link } from "svelte-navigator"
     
     /*https://www.npmjs.com/package/svelte-fa*/
     import Fa from 'svelte-fa'
     import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 </script>
 
-<Router>
+<Router primary={false}>
     <footer id="footer">
 
         <ul id="footerSoMe">

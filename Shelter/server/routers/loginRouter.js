@@ -19,7 +19,7 @@ router.post("/login", async (req, res, next) => {
     const user = await db.get("SELECT * FROM users WHERE email=?;", [email])
 
     if (!user || await !comparePassword(password, user.password)) {
-        res.status().send({ message: "Login failed." })
+        return res.status(401).send({ message: "Login failed." })
     }
 
     req.session.isLoggedIn = true
@@ -31,8 +31,8 @@ router.post("/signUp", async (req, res, next) => {
     const { email, password } = req.body
 
     // send mail for confirmation so store password for later?
-    sendMail(email, "Sign Up Confirmation", "You need to confirm this mail to proceed with login.")
-    .then(() => res.send( { message: "An email confirmation has been send." }))
+    sendMail(email, "Sign Up Confirmation", "You need to confirm this mail to proceed with creating a user.")
+    .then(() => res.send( { message: "An email confirmation has been sent." }))
     .catch(() => res.status(400).send( { data: undefined, message: "Unsuccessful." } ))
 })   
 
@@ -40,8 +40,8 @@ router.post("/forgotPassword", async (req, res, next) => {
     const email = req.body.email
 
     //send mail to be confirmed in order to receive link to change password
-    sendMail(email, "Change Password", "You have regquested a new password. Proceed with link below to change password. xxxx")
-    .then(() => res.send( { message: "An email confirmation has been send." }))
+    sendMail(email, "Change Password", "You have requested a new password. Proceed with link below to change password. xxxx")
+    .then(() => res.send( { message: "An email confirmation has been sent." }))
     .catch(() => res.status(400).send( { data: undefined, message: "Unsuccessful." } ));
 })
 

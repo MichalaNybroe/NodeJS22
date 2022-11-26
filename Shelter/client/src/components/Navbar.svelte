@@ -1,30 +1,39 @@
 <script>
-    import { Router, Link, Route } from "svelte-navigator"
+    import { Router, Link, useNavigate } from "svelte-navigator"
+    import { onMount } from "svelte"
     import Fa from "svelte-fa"
     import { faHouse, faGear, faEnvelope, faShieldDog } from "@fortawesome/free-solid-svg-icons"
-    import Home from "../pages/Home/Home.svelte"
-    import Adoption from "../pages/Adoption/Adoption.svelte"
-    import Contact from "../pages/Contact/Contact.svelte"
-    import Settings from "../pages/Settings/Settings.svelte"
-    import Login from "../pages/Login/Login.svelte"
+    import { user } from "../store/auth.js"
+    import { BASE_URL } from "../store/globals.js"
+
+ 
+    const navigate = useNavigate()
+
+    async function logout()  {
+            user.set(null)
+
+            await fetch(`${$BASE_URL}/logout`, {
+                method: "POST",
+            })
+
+            navigate("/")
+        }
+   
 </script>
 
-<Router>
+<Router primary={false}>
     <nav id="navbar">
         <div id="logoDiv"><Link to="/"><img alt="Shelter Logo" src="../../logo.png" id="logo"></Link></div>
         <div id="navHouseDiv"><Link to="/" id="house"><p class="navIcon" ><Fa icon={faHouse}/></p></Link></div>
         <div id="navDogDiv"><Link to="/adopt"><p class="navIcon"><Fa icon={faShieldDog}/></p></Link></div>
         <div id="navEnvDiv"><Link to=/contact><p class="navIcon"><Fa icon={faEnvelope}/></p></Link></div>
-        <div id="navGearDiv"><Link to="/settings"><p class="navIcon"><Fa icon={faGear}/></p></Link></div>
-   
-        <div id="navLoginDiv"><Link to="/login" style="text-decoration: none;"><p class="navIcon" id="login">Login</p></Link></div>
+        {#if $user != null}
+            <div id="navGearDiv"><Link to="/settings"><p class="navIcon"><Fa icon={faGear}/></p></Link></div>
+            <div id="navLoginDiv"><button class="navIcon login" id="logout" on:click={logout}>Logout</button></div>
+        {:else}
+            <div id="navLoginDiv"><Link to="/login" style="text-decoration: none;"><p class="navIcon login" id="login">Login</p></Link></div>
+        {/if}
     </nav>
-
-    <Route path="/"><Home /></Route>
-    <Route path="/adopt"><Adoption /></Route>
-    <Route path="/contact"><Contact /></Route>
-    <Route path="/settings"><Settings /></Route>
-    <Route path="/login"><Login /></Route>
 </Router>
 
 <style>
@@ -87,15 +96,16 @@
         width: 60%;
     }
 
-    #login {
+    .login {
         grid-column: 8/9;
         align-self: center;
         justify-self: center;
         text-decoration: none;
     }
 
-    #login:hover {
+    .login:hover {
         font-weight: bold;
+        cursor: pointer;
     }
 
     #navLoginDiv {

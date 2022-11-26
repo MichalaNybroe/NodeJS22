@@ -1,8 +1,3 @@
-<script>
-    import { Router, Link, Route } from "svelte-navigator"
-</script>
-
-
 <h2>Welcome to Shelter</h2>
 <h3>The work we do</h3>
 <p>We do ....</p>
