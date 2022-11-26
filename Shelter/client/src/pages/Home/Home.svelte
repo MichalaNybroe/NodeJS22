@@ -20,7 +20,9 @@
     }
 
     h3 {
+        padding-top: 3rem;
         text-align: center;
+        font-size: 2rem;
     }
 
     p {
@@ -32,10 +34,11 @@
         display: grid;
         grid-template-columns: 20% 20% 20% 20% 20%;
         margin-bottom: 2rem;
+        margin-bottom: 4rem;
     }
 
     .column {
-
+        align-self: stretch;
     }
 
     .column:hover {

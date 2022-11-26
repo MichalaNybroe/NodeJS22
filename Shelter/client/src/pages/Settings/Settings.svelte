@@ -52,27 +52,36 @@
     })
 </script>
 
-<form id="animalForm">
-    <h3>Submit your animal</h3>
-    <label for="animalType">Animal type</label>
-    <input type="text" placeholder="fx Cat" name="animalType" id="animalType">
-    <label for="animalSex">Race</label>
-    <input type="text" placeholder="Labrador" name="animalRace" id="animalRace">
-    <label for="animalRace">Name</label>
-    <input type="text" placeholder="Berte" name="animalName" id="animalName">
-    <label for="animalAge">Age</label>
-    <input type="text" placeholder="13 years" name="animalAge" id="animalAge">
-    <label for="animalSex">Sex</label>
-    <input type="text" placeholder="Male" name="animalSex" id="animalSex">
-    <label for="animalColor">Color</label>
-    <input type="text" placeholder="Red and Brown" name="animalColor" id="animalColor">
-    <label for="animalPrice">Price</label>
-    <input type="number" placeholder="1000" name="animalPrice" id="animalPrice">
-    <label for="animalDescription">Description</label>
-    <textarea name="animalDescription" rows="10" cols="100"  placeholder="This is Balou, he is..." id="animalDescription"></textarea>
-    <input type="submit" value="Submit">
-</form>
-
+<div>
+    <form id="animalForm">
+        <h3>Submit your animal</h3>
+        <label for="animalType">Animal type</label>
+        <input type="text" placeholder="fx Cat" name="animalType" id="animalType">
+        <br>
+        <label for="animalSex">Race</label>
+        <input type="text" placeholder="Labrador" name="animalRace" id="animalRace">
+        <br>
+        <label for="animalRace">Name</label>
+        <input type="text" placeholder="Berte" name="animalName" id="animalName">
+        <br>
+        <label for="animalAge">Age</label>
+        <input type="text" placeholder="13 years" name="animalAge" id="animalAge">
+        <br>
+        <label for="animalSex">Sex</label>
+        <input type="text" placeholder="Male" name="animalSex" id="animalSex">
+        <br>
+        <label for="animalColor">Color</label>
+        <input type="text" placeholder="Red and Brown" name="animalColor" id="animalColor">
+        <br>
+        <label for="animalPrice">Price</label>
+        <input type="number" placeholder="1000" name="animalPrice" id="animalPrice">
+        <br>
+        <label for="animalDescription">Description</label><br>
+        <textarea name="animalDescription" rows="10" cols="100"  placeholder="This is Balou, he is..." id="animalDescription"></textarea>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
 
 <style>
     * {
@@ -82,5 +91,17 @@
     h3 {
         font-size: 2rem;
         text-align: center;
+    }
+
+    div {
+        margin: 2rem 30rem;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    input {
+        margin-bottom: 1rem;
     }
 </style>

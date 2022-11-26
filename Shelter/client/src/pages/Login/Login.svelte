@@ -60,9 +60,9 @@
                 placeholder="Enter password"
                 id="password"
             />
-            <Link to="/forgotPassword"><p  id="forgotPW">Forgot your password?</p></Link>
             <br />
             <input type="submit" id="logButton" value="Login" />
+            <Link to="/forgotPassword"><p  id="forgotPW">Forgot your password?</p></Link>
             <Link to="/signUp"><p id="signUp">Sign Up</p></Link>
         </form>
     </div>
@@ -73,7 +73,7 @@
         display: grid;
         grid-template-columns: 10% 80% 10%;
         text-align: center;
-        margin: 2rem;
+        margin: 2rem 15rem;
     }
 
     #loginForm {
@@ -103,19 +103,21 @@
     .input {
         padding: 0.5rem;
         grid-column: 2/3;
+        text-align: center;
     }
 
     #logButton {
         cursor: pointer;
         text-align: center;
-        width: 4rem;
+        width: 6rem;
         padding: 0.3rem;
         border-radius: 1rem;
         border: none;
         font-size: 1rem;
         margin: 0 145px;
-        grid-row: 7;
+        grid-row: 6;
         grid-column: 2/3;
+        justify-self: center;
     }
 
     #logButton:hover {
@@ -124,6 +126,8 @@
 
     #forgotPW {
         color: white;
+        grid-column: 2/3;
+        grid-row: 7;
     }
 
     #forgotPW:hover {
@@ -133,6 +137,7 @@
     #signUp {
         color: white;
         text-decoration: underline;
+        grid-row: 8;
     }
 
     #signUp:hover {

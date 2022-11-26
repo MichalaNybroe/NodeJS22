@@ -33,23 +33,60 @@
     })
 </script>
 
-<form id="contactForm">
-    <h3>Please Contact us with your questions</h3>
-    <label for="email">Email</label>
-    <input type="email" placeholder="email@email.dk" name="email" id="email">
-    <label for="message">Message</label>
-    <textarea rows="4" cols="50" name="message" id="message"></textarea>
-    <input type="submit" value="Submit">
-</form>
-
+<h3>Please Contact us with your questions</h3>
+<div>
+    <form id="contactForm">
+        <label for="email">Email</label>
+        <input type="email" placeholder="email@email.dk" name="email" id="email">
+        <label for="message">Message</label>
+        <textarea rows="15" cols="60" name="message" id="message"></textarea>
+        <input type="submit" value="Submit" id="Submit">
+    </form>
+</div>
 
 <style>
     * {
         color: #29353D;
+        text-align: center;
     }
 
     h3 {
         font-size: 2rem;
         text-align: center;
     }
+
+    div {
+        text-align: center;
+        margin: 3rem 40rem;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    #contactForm {
+        background-color: #004f83;
+    }
+
+    label {
+        padding: 1rem 0 0.5rem 0;
+        color: white;
+    }
+
+    #email {
+        grid-row: 2;
+        width: 40%;
+        border-radius: 4px;
+    }
+
+    #message {
+        grid-row: 4;
+        border-radius: 4px;
+    }
+
+    #Submit {
+        width: 20%;
+    }
+
+
 </style>

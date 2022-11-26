@@ -34,15 +34,18 @@
     h3 {
         font-size: 2rem;
         text-align: center;
+        margin-bottom: 3rem;
     }
 
     #animals {
         text-align: center;
-        /*Display grid*/    
+        margin: 0 20rem;
+        justify-items: center;
+        margin-bottom: 8rem;
     }
 
     .animal {
-        border-color: #29353D;
+        border-color: #939a9f;
         border: solid;
     }
 </style>

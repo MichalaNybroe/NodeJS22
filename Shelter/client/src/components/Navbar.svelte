@@ -31,7 +31,7 @@
             <div id="navGearDiv"><Link to="/settings"><p class="navIcon"><Fa icon={faGear}/></p></Link></div>
             <div id="navLoginDiv"><button class="navIcon login" id="logout" on:click={logout}>Logout</button></div>
         {:else}
-            <div id="navLoginDiv"><Link to="/login" style="text-decoration: none;"><p class="navIcon login" id="login">Login</p></Link></div>
+            <div id="navLoginDiv"><Link to="/login" style="text-decoration: none;"><button class="navIcon login" id="login">Login</button></Link></div>
         {/if}
     </nav>
 </Router>
@@ -96,11 +96,15 @@
         width: 60%;
     }
 
+    #logout:hover {
+        cursor: pointer;
+    }
+
     .login {
-        grid-column: 8/9;
-        align-self: center;
-        justify-self: center;
-        text-decoration: none;
+        background-color: #004f83;
+        margin-top: 2rem;
+        border-radius: 30px;
+        font-family: 'Times New Roman', Times, serif;
     }
 
     .login:hover {
