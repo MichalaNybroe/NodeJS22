@@ -18,7 +18,7 @@
                 return Toastr.warning("The two passwords are not the same.")
             }
             
-            if(passwordInp.value.length <9) {
+            if (passwordInp.value.length <9) {
                 return Toastr.warning("The length of the password needs to be longer than 8.")
             }
             
@@ -58,6 +58,7 @@
     display: grid;
     grid-template-columns: 10% 80% 10%;
     text-align: center;
+    margin: 2rem 15rem;
 }
 
 #signForm {

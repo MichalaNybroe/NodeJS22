@@ -46,7 +46,7 @@
             <input type="submit" id="forgotSubmit" value="Reset" />
         </form>
     </div>
-    <Link to="/login">Return to Login</Link>
+    <Link to="/login" class="link">Return to Login</Link>
 </Router>
 
 <style>
@@ -54,6 +54,7 @@
         display: grid;
         grid-template-columns: 10% 80% 10%;
         text-align: center;
+        margin: 2rem 15rem;
     }
 
     #forgotForm {
@@ -72,6 +73,12 @@
         grid-row: 1;
     }
 
+    #forgotForm p {
+        grid-row: 2;
+        color: white;
+        grid-column: 2/3;
+    }
+
     .input {
         padding: 0.5rem;
         grid-column: 2/3;
@@ -79,6 +86,7 @@
 
     #forgotEmailInp {
         margin-bottom: 2rem;
+        grid-row: 3;
     }
 
     #forgotSubmit {

@@ -3,6 +3,8 @@
     import { BASE_URL } from "../../store/globals.js"
     import { user } from "../../store/auth.js"
     import { useNavigate } from "svelte-navigator";
+    import * as Toastr from "toastr"
+    import '../../../node_modules/toastr/build/toastr.css'
 
     if($user === null) {
         const navigate = useNavigate()
@@ -41,12 +43,13 @@
                 body: JSON.stringify(body)
             }).then((response) => {
                 if (response.ok) {
-                        // vis notifikation som siger dyr oprettet
+                    Toastr.success("Animal is successfully added.")
                     } else {
-                        // notifikation oprettelse fejlet
-                        response.json().then((m) => alert(m.message))
+                        Toastr.warning("Animal creation unsucessfull.")
                     }
-            }).catch((message) => /*notifikation om fejl netværk*/{})
+            }).catch((message) => {
+                Toastr.error("Unable to create. Try again later.")
+            })
         })
 
     })
