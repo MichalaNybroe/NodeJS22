@@ -17,6 +17,7 @@
     "svelte-navigator": "^3.2.2",
     "@fortawesome/free-brands-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
-    "svelte-fa": "^3.0.3"
+    "svelte-fa": "^3.0.3",
+    "toastr": "^2.1.4"
   }
 }

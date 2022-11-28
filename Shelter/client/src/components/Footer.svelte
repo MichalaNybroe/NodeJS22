@@ -1,27 +1,32 @@
 <script>
-    import { Router, Link, Route } from "svelte-navigator"
+    import { Router, Link } from "svelte-navigator"
     
     /*https://www.npmjs.com/package/svelte-fa*/
     import Fa from 'svelte-fa'
     import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 </script>
 
-<footer id="footer">
-    <ul>
-        <li><Fa icon={faFacebook}/></li>
-        <li><Fa icon={faTwitter}/></li>
-        <li><Fa icon={faLinkedin}/></li>
-        <li><Fa icon={faInstagram}/></li>
-    </ul>
+<Router primary={false}>
+    <footer id="footer">
 
-    <div id="pages">
-        <a href="/home" id="fHome">Home</a>
-        <a href="/contact" id="fContact">Contact</a>
-    </div>
+        <ul id="footerSoMe">
+            <!--Need to add links to other pages-->
+            <li><Fa icon={faFacebook}/></li>
+            <li><Fa icon={faTwitter}/></li>
+            <li><Fa icon={faLinkedin}/></li>
+            <li><Fa icon={faInstagram}/></li>
+        </ul>
 
-    <p id="rights">Ⓒ {new Date().getFullYear()} Michala Nybroe | All Rights Reserved</p>
+        <div id="pages">
+            <div id="fHome" class="links"><Link to="/" style="text-decoration: none;"><p>Home</p></Link></div>
+            <div id="fAdopt" class="links"><Link to="/adopt" style="text-decoration: none;"><p>Adoption</p></Link></div>
+            <div id="fContact" class="links"><Link to="/contact" style="text-decoration: none;"><p>Contact</p></Link></div>
+        </div>
+    
+        <p id="rights">Ⓒ {new Date().getFullYear()} Michala Nybroe | All Rights Reserved</p>
 
-</footer>
+    </footer>
+</Router>
 
 <style>
     #footer {
@@ -33,7 +38,7 @@
         grid-row: auto;
     }
 
-    ul {
+    #footerSoMe {
         list-style-type: none;
         grid-row: 1;
         grid-column: 2/3;
@@ -43,11 +48,11 @@
         justify-items: center;
     }
 
-    ul li {
+    #footerSoMe li {
         font-size: 3rem;
     }
 
-    ul li:hover {
+    #footerSoMe li:hover {
         cursor: pointer;
     }
 
@@ -55,10 +60,10 @@
         grid-row: 2;
         grid-column: 2/3;
         display: grid;
-        grid-template-columns: 20% 30% 30% 20%;
+        grid-template-columns: 20% 20% 20% 20% 20%;
     }
 
-    #pages a {
+    .links{
         justify-self: center;
         text-decoration: none;
         font-size: 2rem;
@@ -70,8 +75,12 @@
         grid-column: 2/3;
     }
 
-    #fContact {
+    #fAdopt {
         grid-column: 3/4;
+    }
+
+    #fContact {
+        grid-column: 4/5;
     }
 
     #rights {
@@ -79,5 +88,9 @@
         grid-column: 1/4;
         justify-self: center;
         font-size: 2rem;
+    }
+
+    p {
+        color: white;
     }
 </style>
